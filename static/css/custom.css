@@ -1,0 +1,64 @@
+.nav-footer {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 70%
+}
+.nav-footer > ul {
+  display: inline-block;
+  margin-left: 20px;
+  vertical-align: top;
+  width: 10%;
+}
+.nav-footer > ul > li {
+  padding: 10px 0;
+}
+footer {
+  background-color: #F8F8F8;
+  border-top: 1px solid #E7E7E7;
+  margin-top: 15px;
+  padding: 15px 0 30px;
+}
+footer .separator {
+  opacity: 0.3;
+  margin: 0 10px;
+}
+.address {
+    float: left;
+    width: 30%;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    float: left;
+}
+.news-post {
+    border-top: 1px solid;
+    margin: 8px;
+    float: left;
+}
+.news-info {
+    float:left;
+    width: 20%;
+}
+.news-contents {
+    float: right;
+    margin: 0;
+    padding: 10px;
+    width: 80%
+}
+
+.news-contents > p > img {
+    width: 90%
+}
+
+.news-tags {
+    border-bottom: 1px solid;
+}
+
+.search-form {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    padding: 10px;
+}
+

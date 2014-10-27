@@ -367,6 +367,8 @@ except ImportError:
 else:
     set_dynamic_settings(globals())
 
-SITE_TITLE = "spoqa"
+SITE_TITLE = u"spoqa"
 
 SITE_TAGLINE = u"주식회사 스포카"
+
+BLOG_SLUG = u"news"
