@@ -3,15 +3,17 @@
 {% block blog_keywords %}
 {% keywords_for blog.blogpost as tags %}
 {% if tags %}
-<h3>{% trans "Tags" %}</h3>
-<ul class="list-inline tag-cloud">
-{% for tag in tags %}
-<li>
-    <a href="{% url "blog_post_list_tag" tag.slug %}"
-        class="tag-weight-{{ tag.weight }}">{{ tag }}</a>
+  <div class="news-tags">
+    <h3>{% trans "Tags" %}</h3>
+    <ul class="list-inline tag-cloud">
+      {% for tag in tags %}
+        <li>
+          <a href="{% url "blog_post_list_tag" tag.slug %}"
+             class="tag-weight-{{ tag.weight }}">{{ tag }}</a>
     ({{ tag.item_count }})
-</li>
-{% endfor %}
-</ul>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 {% endif %}
 {% endblock %}
