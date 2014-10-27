@@ -25,23 +25,25 @@ footer .separator {
   margin: 0 10px;
 }
 .address {
+    float: left;
     width: 30%;
     margin: 0;
     border: 0;
     padding: 0;
     float: left;
 }
-.news-info {
+.news-post {
+    border-top: 1px solid;
+    margin: 8px;
     float: left;
-    margin: 0;
-    border: 0;
-    padding: 0;
+}
+.news-info {
+    float:left;
     width: 20%;
 }
 .news-contents {
-    float: left;
+    float: right;
     margin: 0;
-    border: 0;
     padding: 10px;
     width: 80%
 }
@@ -59,3 +61,4 @@ footer .separator {
     border-bottom: 1px solid;
     padding: 10px;
 }
+

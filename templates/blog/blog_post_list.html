@@ -16,53 +16,53 @@
     {% endmetablock %}{% endblock %}
     {% block main %}
       {% for blog_post in blog_posts.object_list %}
-        <div class="news-info">
-          {% block blog_post_list_created %}
-            <h6>{{ blog_post.created|date:"Y-m-d H:i" }}</h6>
-          {% endblock %}
-          {% block blog_post_list_post_metainfo %}
-            <h6 class="post-meta">
-              {% with blog_post.categories.all as categories %}
-                {% if categories %}
-                  {% for category in categories %}
-                    <a href="{% url "blog_post_list_category" category.slug %}">{{ category }}</a>{% if not forloop.last %}, {% endif %}
-                  {% endfor %}
-                {% endif %}
-              {% endwith %}
-            </h6>
-          {% endblock %}
-        </div>
-        {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
-          {% block blog_post_list_post_featured_image %}
-            <a href="{{ blog_post.get_absolute_url }}">
-              <img class="img-thumbnail pull-left" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 90 90 %}">
-            </a>
-          {% endblock %}
-        {% endif %}
-        <div class="news-contents">
-          {% block blog_post_list_post_content %}
-            {% editable blog_post.content %}
-            {{ blog_post.content|truncatewords_html:10|safe }}
-            {% endeditable %}
-          {% endblock %}
-          {% block blog_post_list_post_links %}
-            <div class="blog-list-detail">
-              {% keywords_for blog_post as tags %}
-              {% if tags %}
-                <ul class="list-inline tags">
-                  {% trans "Tags" %}:
-                  {% spaceless %}
-                    {% for tag in tags %}
-                      <li><a rel="tag" href="{% url "blog_post_list_tag" tag.slug %}" class="tag">{{ tag }}</a></li>
+        <div class="news-post">
+          <div class="news-info">
+            {% block blog_post_list_created %}
+              <h6>{{ blog_post.created|date:"Y-m-d H:i" }}</h6>
+            {% endblock %}
+            {% block blog_post_list_post_metainfo %}
+              <h6 class="post-meta">
+                {% with blog_post.categories.all as categories %}
+                  {% if categories %}
+                    {% for category in categories %}
+                      <a href="{% url "blog_post_list_category" category.slug %}">{{ category }}</a>{% if not forloop.last %}, {% endif %}
                     {% endfor %}
-                  {% endspaceless %}
-                </ul>
-              {% endif %}
-              <p class="text-right">
-                <a href="{{ blog_post.get_absolute_url }}">{% trans "read more" %}<span class="glyphicon glyphicon-chevron-right"></span></a>
-              </p>
+                  {% endif %}
+                {% endwith %}
+              </h6>
+            {% endblock %}
+          </div>
+            {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
+              {% block blog_post_list_post_featured_image %}
+                <a href="{{ blog_post.get_absolute_url }}">
+                  <img class="img-thumbnail pull-left" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 90 90 %}">
+                </a>
+              {% endblock %}
+            {% endif %}
+            <div class="news-contents">
+              {% block blog_post_list_post_content %}
+                {% editable blog_post.content %}
+                {{ blog_post.content|truncatewords_html:10|safe }}
+                {% endeditable %}
+              {% endblock %}
+              {% block blog_post_list_post_links %}
+                  {% keywords_for blog_post as tags %}
+                  {% if tags %}
+                    <ul class="list-inline tags">
+                      {% trans "Tags" %}:
+                      {% spaceless %}
+                        {% for tag in tags %}
+                          <li><a rel="tag" href="{% url "blog_post_list_tag" tag.slug %}" class="tag">{{ tag }}</a></li>
+                        {% endfor %}
+                      {% endspaceless %}
+                    </ul>
+                  {% endif %}
+                  <p class="text-right">
+                    <a href="{{ blog_post.get_absolute_url }}">{% trans "read more" %}<span class="glyphicon glyphicon-chevron-right"></span></a>
+                  </p>
+              {% endblock %}
             </div>
-          {% endblock %}
         </div>
       {% endfor %}
       {% pagination_for blog_posts %}
@@ -74,6 +74,6 @@
     {% endblock %}
 
     {% block right_panel %}
-        {% search_form "blog.BlogPost" %}
-        {% include "blog/includes/filter_panel.html" %}
+      {% search_form "blog.BlogPost" %}
+      {% include "blog/includes/filter_panel.html" %}
     {% endblock %}
